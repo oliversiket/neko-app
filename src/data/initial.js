@@ -1,5 +1,6 @@
 const initial = {
     chosenBreed: "",
+    history: [],
     loaded: false,
 };
 

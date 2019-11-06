@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import axios from "../../axios"
 import Loading from "../Loading/Loading";
 
@@ -29,13 +30,13 @@ class Search extends Component {
     }
 
     handleClick(e) {
-        e.preventDefault();
+        let breedID = this.state.chosenBreed;
 
-        let name = this.state.chosenBreed;
-
-        if(this.state.breeds.map(breed => breed.id).includes(name)){
-            this.props.handleBreed(name);
+        if(this.state.breeds.map(breed => breed.id).includes(breedID)){
+            this.props.handleBreed(breedID);
+            this.props.handleHistory(breedID);
         }else{
+            e.preventDefault();
             this.setState({error: true})
         }
     }
@@ -68,7 +69,10 @@ class Search extends Component {
                         </datalist>
                         { error ? <p className="text-warning">Please pick a valid breed!</p> : null }
                     </div>
-                    <button onClick= { this.handleClick }>Show me</button>
+                    <Link to='/facts'>
+                        <button onClick= { this.handleClick }>Show me</button>
+                    </Link>
+                    
                 </form>
                
         );

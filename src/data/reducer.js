@@ -5,10 +5,17 @@ const updateChosenBreed = (state, { breed }) => {
     };
 };
 
+const saveHistory = (state, { id }) => {
+    return {
+        ...state,
+        history: [...state.history, id ]
+    };
+};
+
 const reducer = (state, action) => {
     switch (action.type) {
-        case "update": updateChosenBreed(state, action) ; 
-
+        case "update": return updateChosenBreed(state, action); 
+        case "save": return saveHistory(state, action);
         default: return state;
         } 
 };
