@@ -1,5 +1,6 @@
 const initial = {
-    chosenBreed: "",
+    chosenBreedID: "",
+    chosenBreedName: "",
     history: [],
     loaded: false,
 };

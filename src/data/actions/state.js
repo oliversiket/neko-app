@@ -1,6 +1,6 @@
-export const updateChosenBreed = ( breed ) => {
-    return { type: "update", breed: breed}
+export const updateChosenBreed = ( id, name ) => {
+    return { type: "update", id, name}
 }
-export const saveHistory = ( id ) => {
-    return { type: "save", id}
+export const saveHistory = ( id, name ) => {
+    return { type: "save", id, name}
 }

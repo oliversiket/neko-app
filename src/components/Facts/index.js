@@ -3,7 +3,7 @@ import Facts from './Facts';
 
 const mapStateToProps = state => { 
     return { 
-        chosenBreed: state.chosenBreed
+        chosenBreedID: state.chosenBreedID
     };
 };
 

@@ -9,7 +9,8 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            chosenBreed: "",
+            chosenBreedID: "",
+            chosenBreedName: "",
             breeds: [],
             loaded: false,
             error: false
@@ -24,17 +25,19 @@ class Search extends Component {
         let id = breeds.find(breed => breed.name === e.currentTarget.value)
 
         this.setState({
-            chosenBreed: id === undefined ? "" : id.id,
+            chosenBreedID: id === undefined ? "" : id.id,
+            chosenBreedName: id === undefined ? "" : id.name,
             error: false,
         })
     }
 
     handleClick(e) {
-        let breedID = this.state.chosenBreed;
+        let breedID = this.state.chosenBreedID;
+        let breedName = this.state.chosenBreedName;
 
         if(this.state.breeds.map(breed => breed.id).includes(breedID)){
-            this.props.handleBreed(breedID);
-            this.props.handleHistory(breedID);
+            this.props.handleBreed(breedID, breedName);
+            this.props.handleHistory(breedID, breedName);
         }else{
             e.preventDefault();
             this.setState({error: true})

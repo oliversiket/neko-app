@@ -1,14 +1,21 @@
-const updateChosenBreed = (state, { breed }) => {
+const updateChosenBreed = (state, { id, name }) => {
     return {
         ...state,
-        chosenBreed: breed, 
+        chosenBreedID: id,
+        chosenBreedName: name
     };
 };
 
-const saveHistory = (state, { id }) => {
+const saveHistory = (state, { id, name}) => {
     return {
         ...state,
-        history: [...state.history, id ]
+        history: [
+            ...state.history, 
+            {
+                id, 
+                name
+            }
+        ]
     };
 };
 

@@ -10,7 +10,10 @@ class History extends Component {
                 <h2>Your recently viewed fluffy friends</h2>
                 <ul>
                     { history === undefined ? null :  history.map((item, index) =>{
-                        return (<li key={ index }> { item }</li>)
+                        return (<li key={ index }>
+                                    <p>{item.id}</p>
+                                    <p>{item.name}</p>
+                                </li>)
                         })
                     }
                 </ul>

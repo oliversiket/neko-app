@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import axios from "../../axios"
 import Loading from "../Loading/Loading";
+import Rating from "../Rating/Rating";
 
 class Facts extends Component {
     constructor(props){
@@ -11,11 +13,10 @@ class Facts extends Component {
             loaded: false,
         }
     }
-
     componentDidMount(){
-        let { chosenBreed } = this.props;
+        let { chosenBreedID } = this.props;
 
-        axios.get(`breeds/search?q=${chosenBreed}`).then(({ data }) => {
+        axios.get(`breeds/search?q=${chosenBreedID}`).then(({ data }) => {
             this.setState({
                 loaded: true,
                 facts: data
@@ -27,10 +28,23 @@ class Facts extends Component {
         return (
             <main>
                 <h3>Some facts about your beloved creature</h3>
-            { !loaded ? <Loading/> : ( facts.map((item, index) => {
-                return (<li key={index}> Name: {item.name}</li>)
-            }) )}
-             
+                <ul className="list-group" >
+                    { !loaded ? <Loading/> : ( facts.map((item, index) => {
+                        return (
+                            <li key={index}> 
+                                <h3>Breed: {item.name}</h3>
+                                <p>Origin: {item.origin}</p>
+                                <p>Description: {item.description}</p>
+                                <Rating name={ "Adaptability" } n={ item.adaptability }/>
+                                <Rating name={ "Energy level" } n={ item.energy_level }/>
+                            </li>
+                        )
+
+                    }) )}
+                </ul>
+                <Link to="/">
+                    <button>Take me back to the search page</button>
+                </Link>
             </main>
         )
     }

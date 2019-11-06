@@ -4,14 +4,15 @@ import { updateChosenBreed, saveHistory } from '../../data/actions/state';
 
 const mapStateToProps = state => { 
     return { 
-        chosenBreed: state.chosenBreed,
+        chosenBreedID: state.chosenBreedID,
+        chosenBreedName: state.chosenBreedName
     };
 };
 
-const mapDispatchToProps = dispatch => { 
-    return { 
-        handleBreed: (breed) => dispatch(updateChosenBreed(breed)),
-        handleHistory: (id) => dispatch(saveHistory(id)),
+const mapDispatchToProps = dispatch => {
+    return {
+        handleBreed: (id,name) => dispatch(updateChosenBreed(id,name)),
+        handleHistory: (id,name) => dispatch(saveHistory(id,name)),
     }; 
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
