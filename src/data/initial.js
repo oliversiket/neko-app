@@ -1,5 +1,5 @@
 const initial = {
-    selectedBreed: 0,
+    chosenBreed: "",
     loaded: false,
 };
 

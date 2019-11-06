@@ -8,18 +8,39 @@ class Search extends Component {
         super(props);
 
         this.state = {
-            breeds: "",
-            loaded: false
+            chosenBreed: "",
+            breeds: [],
+            loaded: false,
+            error: false
         }
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
-    
-    handleClick() {
-        axios.get("/breeds").then( data => { console.log(data.data);
-        }, error => {
-        console.log(error); 
+
+    handleChange(e) {
+        let { breeds } = this.state;
+        let id = breeds.find(breed => breed.name === e.currentTarget.value)
+
+        this.setState({
+            chosenBreed: id === undefined ? "" : id.id,
+            error: false,
         })
     }
-    componentDidMount(){
+
+    handleClick(e) {
+        e.preventDefault();
+
+        let name = this.state.chosenBreed;
+
+        if(this.state.breeds.map(breed => breed.id).includes(name)){
+            this.props.handleBreed(name);
+        }else{
+            this.setState({error: true})
+        }
+    }
+
+    componentDidMount(){    
         axios.get("/breeds").then(({ data }) => {
             this.setState({
                 loaded: true,
@@ -27,26 +48,29 @@ class Search extends Component {
             });
         });
     }
-
     render() {
-        let { breeds, loaded } = this.state;
+        let { breeds, error, breed, loaded } = this.state;
 
-        return !loaded ? <Loading/> : (
-            <form>
-                <div class="form-group">
-                    <input
-                        type="text"
-                        list="breeds"
-                    />
-                    <datalist id="breeds">
+        return  !loaded ? <Loading/> : (
+                <form>
+                    <div className="form-group">
+                        <input
+                            type="text"
+                            list="breeds"
+                            value= { breed }
+                            onChange={ (e) => this.handleChange(e) }
+                        />
+                        <datalist id="breeds">
                         { breeds.map((breeds) => {
-                            return (<option key={breeds.id}> { breeds.name }</option>
-                            )
-                        })}
-                    </datalist>
-                </div>
-                <button onClick= { this.handleClick }>Show me</button>
-            </form>
+                                return (<option key={breeds.id}> { breeds.name }</option>
+                                )
+                            })}
+                        </datalist>
+                        { error ? <p className="text-warning">Please pick a valid breed!</p> : null }
+                    </div>
+                    <button onClick= { this.handleClick }>Show me</button>
+                </form>
+               
         );
     }
 }

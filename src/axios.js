@@ -9,6 +9,5 @@ export default axios.create({
     },
 
     headers: {
-        Accept: "application/json",
-        'x-api-key': "619b680c-8c53-4ea6-9fe3-2de22e801a71",
+        Accept: "application/json"
 }, });

@@ -1,12 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import Header from '../Header/Header';
-import Content from '../Search/Search';
+import Search from '../Search';
 
 const App = () => (
-	<Fragment>
+	<>
 		<Header/>
-		<Content/>
-	</Fragment>
+		<Search/>
+	</>
 );
 
 export default App;
