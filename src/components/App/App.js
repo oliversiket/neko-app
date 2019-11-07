@@ -13,8 +13,8 @@ const App = () => (
 		<>
 			<Header/>
 			<Route exact path="/" component={ Search } />
+			<Route exact path="/" component={ History } />
 			<Route exact path="/facts" component={ Facts } />
-			<History/>
 		</>
 	</Router>
 );

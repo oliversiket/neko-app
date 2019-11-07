@@ -10,21 +10,32 @@ class Facts extends Component {
 
         this.state = {
             facts: [],
+            img: "",
+            error: false,
             loaded: false,
         }
     }
     componentDidMount(){
         let { chosenBreedID } = this.props;
 
-        axios.get(`breeds/search?q=${chosenBreedID}`).then(({ data }) => {
-            this.setState({
-                loaded: true,
-                facts: data
-            });
-        });
+        axios.get(`images/search?breed_id=${chosenBreedID}`).then(({ data }) => {
+            if(data.length === 0){
+                this.setState({
+                    error: true,
+                });
+            }else{
+                this.setState({
+                    loaded: true,
+                    facts: data[0].breeds,
+                    img: data[0].url
+                })
+            };
+        }).catch(error => {
+            console.log(error);
+          });
     }
     render() {
-        let { facts, loaded } = this.state;
+        let { facts, loaded, img } = this.state;
         return (
             <main>
                 <h3>Some facts about your beloved creature</h3>
@@ -32,11 +43,15 @@ class Facts extends Component {
                     { !loaded ? <Loading/> : ( facts.map((item, index) => {
                         return (
                             <li key={index}> 
+                                <img className="cat-image" src={img}></img>
                                 <h3>Breed: {item.name}</h3>
                                 <p>Origin: {item.origin}</p>
                                 <p>Description: {item.description}</p>
                                 <Rating name={ "Adaptability" } n={ item.adaptability }/>
                                 <Rating name={ "Energy level" } n={ item.energy_level }/>
+                                <Rating name={ "Intelligence" } n={ item.intelligence }/>
+                                <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
+                                <a href={item.wikipedia_url}target="_blank" rel="noopener noreferrer">Wanna know more ?</a>
                             </li>
                         )
 
