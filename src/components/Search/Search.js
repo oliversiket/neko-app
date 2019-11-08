@@ -56,26 +56,32 @@ class Search extends Component {
         let { breeds, error, breed, loaded } = this.state;
 
         return  !loaded ? <Loading/> : (
-                <form>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            list="breeds"
-                            value= { breed }
-                            onChange={ (e) => this.handleChange(e) }
-                        />
-                        <datalist id="breeds">
-                        { breeds.map((breeds) => {
-                                return (<option key={breeds.id}> { breeds.name }</option>
+
+                <form className="form-inline pick-breed">
+                    <label className="my-1 mr-2 form-label" htmlFor="">Species</label>
+                    <select 
+                        className={ `custom-select my-1 mr-sm-2 ${error ? "is-invalid" : null}` }
+                        id=""
+                        type="text"
+                        list="breeds"
+                        value= { breed }
+                        onChange={ (e) => this.handleChange(e) }
+                    >
+                        <option>Please select an option</option>
+                        {breeds.map((breeds) => {
+                            return (<option key={breeds.id}> { breeds.name }</option>
                                 )
                             })}
-                        </datalist>
-                        { error ? <p className="text-warning">Please pick a valid breed!</p> : null }
+                    </select>
+
+                    <div className="invalid-feedback">
+                        Please pick a valid breed.
                     </div>
+
                     <Link to='/facts'>
-                        <button onClick= { this.handleClick }>Show me</button>
+                        <button type="submit" onClick= { this.handleClick } className="pick-button">Submit</button>
                     </Link>
-                    
+
                 </form>
                
         );

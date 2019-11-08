@@ -7,6 +7,7 @@ import Header from '../Header/Header';
 import Search from '../Search';
 import History from '../History';
 import Facts from '../Facts';
+import Footer from '../Footer/Footer';
 
 const App = () => (
 	<Router>
@@ -15,6 +16,7 @@ const App = () => (
 			<Route exact path="/" component={ Search } />
 			<Route exact path="/" component={ History } />
 			<Route exact path="/facts" component={ Facts } />
+			<Footer/>
 		</>
 	</Router>
 );

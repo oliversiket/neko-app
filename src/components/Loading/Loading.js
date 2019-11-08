@@ -5,7 +5,9 @@ class Loading extends Component {
     const { children, loaded } = this.props;
 
     return loaded ? children : (
-        <div className="loading-spinner"></div>
+        <div className="loading-container">
+            <span className="loading-spinner"></span>
+        </div>
     );
   }
 }

@@ -17,8 +17,8 @@ class History extends Component {
         let { history } = this.props;
         
         return (
-            <footer>
-                <h2>Your recently viewed fluffy friends</h2>
+            <div className="history-wrapper">
+                <h2 className="history-title">Your recently viewed fluffy friends</h2>
                 <ul>
                     { history === undefined ? null :  history.map((item, index) =>{
                         return (<li key={ index }>
@@ -29,7 +29,7 @@ class History extends Component {
                         })
                     }
                 </ul>
-            </footer>
+            </div>
         )
     }
 }
