@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from "../../axios"
 import Loading from "../Loading/Loading";
+import History from "../History/History";
 
 class Search extends Component {
 
@@ -56,7 +57,7 @@ class Search extends Component {
         let { breeds, error, breed, loaded } = this.state;
 
         return  !loaded ? <Loading/> : (
-
+            <main>
                 <form className="form-inline pick-breed">
                     <label className="my-1 mr-2 form-label" htmlFor="">Species</label>
                     <select 
@@ -81,8 +82,10 @@ class Search extends Component {
                     <Link to='/facts'>
                         <button type="submit" onClick= { this.handleClick } className="pick-button">Submit</button>
                     </Link>
-
                 </form>
+
+                <History/>
+            </main>
                
         );
     }

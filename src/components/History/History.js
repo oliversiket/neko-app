@@ -20,7 +20,7 @@ class History extends Component {
             <div className="history-wrapper">
                 <h2 className="history-title">Your recently viewed fluffy friends</h2>
                 <ul>
-                    { history === undefined ? null :  history.map((item, index) =>{
+                    { history === undefined ? <li>Your history is empty</li> :  history.map((item, index) =>{
                         return (<li key={ index }>
                                     <Link to='/facts'>
                                         <button onClick={() => { this.handleClick(item.id, item.name) }}> {item.name} </button>

@@ -1,23 +1,25 @@
 import React from 'react';
 import { 
     BrowserRouter as Router, 
-    Route, 
+	Route,
+	Switch, 
 } from 'react-router-dom';
 import Header from '../Header/Header';
 import Search from '../Search';
-import History from '../History';
 import Facts from '../Facts';
 import Footer from '../Footer/Footer';
+import FourOhFour from '../FourOhFour/FourOhFour';
 
 const App = () => (
 	<Router>
-		<>
-			<Header/>
+		<Header/>
+		<Switch>	
 			<Route exact path="/" component={ Search } />
-			<Route exact path="/" component={ History } />
 			<Route exact path="/facts" component={ Facts } />
-			<Footer/>
-		</>
+			<Route component={ FourOhFour }/>
+		</Switch>
+		<Footer/>
+		
 	</Router>
 );
 

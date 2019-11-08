@@ -1,9 +1,9 @@
 body {
   margin: 0;
   font-size: 16px;
-  font-family: 'Inconsolata', monospace;
-  background-color: rgb(244, 244, 242);
-  -webkit-font-smoothing: antialiased;
+  font-family: 'Yeon Sung', cursive;
+  color: azure;
+  background: rgb(229,207,170);
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -11,31 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-@media only screen and (max-device-width : 480px){
+@media only screen and (min-device-width : 320px){
+  #root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
   header{
     display: flex;
-    padding: 20px 20px 20px 0;
+    margin-bottom: 30px;
+  }
+  main{
+    color: rgb(197, 54, 85);
   }
   #logo{
-    width: 35vw;
-    height: auto;
-    border-radius: 45%;
+    color: rgb(67, 42, 46);
+    width: 75px;
+    height: 75px;
   }
   .crown{
-    width: 20px;
+    width: 30px;
+  }
+  .four-oh-four{
+    width: 100vw;
+  }
+  .smudge-lorde{
+    width: 100%;
   }
   .app-name{
     padding-left: 10px;
     line-height: 0.5em;
   }
   .app-name h1{
+    color: rgb(197, 54, 85);
     letter-spacing: 5px;
-    font-size: 3.5em;
-    font-weight: 600;
+    font-size: 4em;
+    font-weight: 400;
   }
   .app-name p{
-    font-size: 1em;
-    text-indent: 15px;
+    color: rgb(116,65,80);
+    font-size: 1.8em;
+    text-indent: 30px;
   }
   .pick-breed{
     display: flex;
@@ -81,6 +100,9 @@ code {
     border-right: none;
     animation: loadingSpinner 1s linear infinite;
     margin: 0 auto;
+  }
+  footer{
+    /* background-color: rgba(238, 147, 67, 0.89); */
   }
 }
 
