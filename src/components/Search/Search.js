@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from "../../axios"
 import Loading from "../Loading/Loading";
-import History from "../History/History";
+import History from "../History";
 
 class Search extends Component {
 
@@ -23,9 +23,12 @@ class Search extends Component {
 
     handleChange(e) {
         let { breeds } = this.state;
+
+            // find the selected user input in the list of breeds
         let id = breeds.find(breed => breed.name === e.currentTarget.value)
 
         this.setState({
+            // if the selected breed exists use its ID and Name to create variables
             chosenBreedID: id === undefined ? "" : id.id,
             chosenBreedName: id === undefined ? "" : id.name,
             error: false,
@@ -35,16 +38,25 @@ class Search extends Component {
     handleClick(e) {
         let breedID = this.state.chosenBreedID;
         let breedName = this.state.chosenBreedName;
-
-        if(this.state.breeds.map(breed => breed.id).includes(breedID)){
-            this.props.handleBreed(breedID, breedName);
-            this.props.handleHistory(breedID, breedName);
-        }else{
+        let { breeds } = this.state
+        let { history, handleBreed, handleHistory } = this.props;
+        let checkBreed = () => breeds.map(breed => breed.id).includes(breedID)
+        let checkHistory = () => history.map(breed => breed.id).includes(breedID);
+        
+            // after submit if selected breed exists update state
+        if( checkBreed() && !checkHistory()){
+            handleBreed(breedID, breedName);
+            handleHistory(breedID, breedName);
+        }else if(checkBreed() && checkHistory()){
+            handleBreed(breedID, breedName);
+        }
+        else{
+            // if selected doesn't exist show an error message
             e.preventDefault();
             this.setState({error: true})
         }
     }
-
+        // axios call to get all the available breed from API
     componentDidMount(){    
         axios.get("/breeds").then(({ data }) => {
             this.setState({
@@ -61,8 +73,7 @@ class Search extends Component {
                 <form className="form-inline pick-breed">
                     <label className="my-1 mr-2 form-label" htmlFor="">Species</label>
                     <select 
-                        className={ `custom-select my-1 mr-sm-2 ${error ? "is-invalid" : null}` }
-                        id=""
+                        className={ `custom-select ${error ? "is-invalid" : null}` }
                         type="text"
                         list="breeds"
                         value= { breed }
@@ -80,7 +91,7 @@ class Search extends Component {
                     </div>
 
                     <Link to='/facts'>
-                        <button type="submit" onClick= { this.handleClick } className="pick-button">Submit</button>
+                        <button type="submit" onClick= { this.handleClick } className="pick-button">Never Be Tamed</button>
                     </Link>
                 </form>
 

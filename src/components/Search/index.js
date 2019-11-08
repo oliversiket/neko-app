@@ -5,7 +5,8 @@ import { updateChosenBreed, saveHistory } from '../../data/actions/state';
 const mapStateToProps = state => { 
     return { 
         chosenBreedID: state.chosenBreedID,
-        chosenBreedName: state.chosenBreedName
+        chosenBreedName: state.chosenBreedName,
+        history: state.history
     };
 };
 
