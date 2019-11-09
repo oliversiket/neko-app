@@ -20,14 +20,16 @@ This App is a tool which helps to find out more about our furry friends. Returns
 ### Features
   * Dropdown menu for selection
   * Validate user selection
+  * Loading spinner until API response
   * History for previously viewed pages
+  * History check to prevent duplication
   * Responsive Mobile App Design
   * Simplicity in design
   * Touch-friendly
   * Favourite pick (future implementation)
 
 ## API
-  * TheCatApi.com
+  * TheCatApi - https://thecatapi.com/
 
 ## Setup
 
@@ -41,19 +43,19 @@ This App is a tool which helps to find out more about our furry friends. Returns
 1. Open your terminal and navigate a directory where you would like to set up your application
 2. Run the following command to clone the repository
 
-```git clone git@github.com:oliversiket/neko-app.git```
+    ```git clone git@github.com:oliversiket/neko-app.git```
 
 3. Change directory to your freshly cloned app
 
-``` cd app-name```
+    ``` cd app-name```
 
 4. Install dependencies
  
-``` npm install ```
+    ``` npm install ```
 
 5. Initiate the app
 
-``` npm start ```
+    ``` npm start ```
 
 6. You can visit your app in your browser: http://localhost:3000/
 
