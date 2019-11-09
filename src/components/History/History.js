@@ -20,7 +20,7 @@ class History extends Component {
             <div className="history-wrapper">
                 <h2 className="history-title">Recently viewed fluffy friends</h2>
                 <ul className="history-list">
-                    { history.length === 0 ? <p>Your history is empty 😿</p> :  history.map((item, index) =>{
+                    { history.length === 0 ? <p>Your history is empty <span role="img" aria-label="cat-face">😿</span></p> :  history.map((item, index) =>{
                         
                         return (<li key={ index }>
                                     <Link to='/facts'>

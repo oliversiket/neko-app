@@ -67,7 +67,7 @@ code {
   form select{
     margin-top: 20px;
   }
-  .pick-button{
+  .pick-button, .more-link{
     display:inline-block;
     padding:0.35em 1.2em;
     border: 2px solid rgb(197, 54, 85);
@@ -76,15 +76,19 @@ code {
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
+    font-size: 1.2em;
     font-weight:300;
     background-color: transparent;
     color: rgb(197, 54, 85);
     text-align:center;
     transition: all 0.3s ease-in-out;
   }
-  .pick-button:hover, .history-list button:hover{
+  .pick-button:hover, .history-list button:hover, .more-link:hover{
     color:rgb(229,207,170);
     background-color:rgb(197, 54, 85);
+  }
+  .more-link:hover{
+    text-decoration: none;
   }
   .form-label{
     font-size: 2em;
@@ -132,12 +136,18 @@ code {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+  }
+  .nav-icon{
     color: rgb(197, 54, 85);
   }
+  .nav-icon:hover{
+    text-decoration: none;
+  }
   .text-dec{
-    font-size: 1.2em;
-    font-weight: 400;
+    font-size: 1.6em;
+    font-weight: 500;
     text-decoration: underline;
+    padding-right: 10px;
   }
   .list-block-one li{
     display: flex;
@@ -181,10 +191,14 @@ code {
   }
   footer{
     display: flex;
-    background-color: rgba(197, 54, 85, 0.8);
+    background-color: rgba(197, 54, 85, 1);
     justify-content: center;
   }
+  .link-wrap{
+    text-align: center;
+  }
   .github-link{
+    font-size: 1.2em;
     cursor: pointer;
     text-decoration: none;
     color: rgb(229,207,170);
@@ -195,6 +209,9 @@ code {
   .github-link:visited{
     text-decoration: none;
     color: rgb(229,207,170);
+  }
+  .invalid-feedback{
+    font-size: 1em;
   }
 }
 @media only screen and (min-device-width : 580px){
@@ -207,6 +224,23 @@ code {
   form select{
     width: 60% !important;
   }
+  .invalid-feedback{
+    width: 60%;
+  }
+}
+@media only screen and (min-device-width : 980px){
+  .cat-image{
+    margin: 20px 0 20px 0;
+  }
+  .block-two-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .list-block-two{
+    margin-top: 20px;
+  }
+  
 }
 @keyframes loadingSpinner {
 	100% { transform: rotate(360deg); }

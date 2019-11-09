@@ -14,7 +14,7 @@ const App = () => (
 	// wrap our App with Router to declare routes
 	<Router>
 		<Header/>
-			<Switch>	
+			<Switch>
 				<Route exact path="/" component={ Search } />
 				<Route exact path="/facts" component={ Facts } />
 				<Route component={ FourOhFour }/>

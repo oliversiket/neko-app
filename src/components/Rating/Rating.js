@@ -7,10 +7,10 @@ class Rating extends Component {
         let row = []
 
         for (let i = 0; i < n; i++) {
-            row.push(<span key={i} alt="kitten" role="img" aria-label="cat">😻</span>)  
+            row.push(<span key={i} alt="kitten" role="img" aria-label="cat">😻 </span>)  
         }   
 
-        return <div>{name}: {row}</div>; 
+        return <div>{ name }: {row}</div>; 
     }
 };
 

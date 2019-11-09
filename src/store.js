@@ -10,7 +10,6 @@ const store = createStore(
     reducer, 
     initial,
     composeEnhancers(persistState())
-    // composeEnhancers(persistState())
 );
 
 export default store

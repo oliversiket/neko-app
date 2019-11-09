@@ -42,11 +42,11 @@ class Facts extends Component {
             <main className="facts-wrapper container">
                 <div className="nav">
                     <Link to="/">
-                        <i className="fas fa-chevron-left fa-2x nav nav-back"></i>
+                        <i className="fas fa-chevron-left fa-2x nav-icon nav-back"></i>
                     </Link>
-                    <i className="far fa-heart fa-2x nav nav-fav"></i>
+                    <i className="far fa-heart fa-2x nav-icon nav-fav"></i>
                     <Link to="/">
-                        <i onClick={ handleReset } className="fas fa-power-off fa-2x nav nav-off"></i>
+                        <i onClick={ handleReset } className="fas fa-power-off fa-2x nav-icon nav-off"></i>
                     </Link>
                 </div>
                 
@@ -57,11 +57,11 @@ class Facts extends Component {
                         { facts.map((item, index) => {
                             return (
                                 <li key={index}> 
-                                    <img className="cat-image" src={img}></img>
+                                    <img className="cat-image" src={img} alt="cat"></img>
                                     <p><span className="text-dec">Breed:</span> {item.name}</p>
                                     <p><span className="text-dec">Origin:</span> {item.origin}</p>
                                     <p className="description"><span className="text-dec">Description:</span> {item.description}</p>
-                                    <p>Life exptectancy: { item.life_span } years</p>
+                                    
                                 </li>
                             )}) }
                         </ul>
@@ -71,13 +71,25 @@ class Facts extends Component {
                         {facts.map((item, index) => {
                             return (
                                 <li key={index}>
-                                    <p>Traits on a 1-5 scale:</p>
-                                    <Rating name={ "Adaptability" } n={ item.adaptability }/>
-                                    <Rating name={ "Energy level" } n={ item.energy_level }/>
-                                    <Rating name={ "Intelligence" } n={ item.intelligence }/>
-                                    <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
-                                    <Rating name={ "Child Friendly" } n={ item.child_friendly }/>
-                                    <a href={item.wikipedia_url}target="_blank" rel="noopener noreferrer">Wanna know more ?</a>
+                                    <h4>Lifespan and health</h4>
+                                        <ul>
+                                            <span>Life exptectancy: { item.life_span } years</span>
+                                            <Rating name={ "Health Issues" } n={ item.health_issues }/>
+                                        </ul>
+                                    <h4>Behavior</h4>
+                                        <ul>
+                                            <Rating name={ "Adaptability" } n={ item.adaptability }/>
+                                            <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
+                                            <Rating name={ "Child Friendly" } n={ item.child_friendly }/>
+                                            <Rating name={ "Social Needs" } n={ item.social_needs }/>
+                                            <Rating name={ "Affection Level" } n={ item.affection_level }/>
+                                        </ul>
+                                    <h4>Other</h4>
+                                        <ul>
+                                            <Rating name={ "Energy level" } n={ item.energy_level }/>
+                                            <Rating name={ "Intelligence" } n={ item.intelligence }/>
+                                        </ul>
+                                    <p className="link-wrap"><a className="more-link" href={item.wikipedia_url}target="_blank" rel="noopener noreferrer">I want to know more!</a></p>
                                 </li>
                             )} )}
                         </ul>
