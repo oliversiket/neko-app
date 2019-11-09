@@ -27,6 +27,8 @@ This App is a tool which helps to find out more about our furry friends. Returns
   * Simplicity in design
   * Touch-friendly
   * Favourite pick (future implementation)
+  * Secure connection with SSL certificate
+  * Reset your history function
 
 ## API
   * TheCatApi - https://thecatapi.com/
