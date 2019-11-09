@@ -2,7 +2,7 @@ const initial = {
     chosenBreedID: "",
     chosenBreedName: "",
     history: [],
-    loaded: false,
+    favourites: []
 };
 
 export default initial

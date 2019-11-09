@@ -1,3 +1,5 @@
+import initial from "./initial";
+
 const updateChosenBreed = (state, { id, name }) => {
     return {
         ...state,
@@ -23,6 +25,7 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "update": return updateChosenBreed(state, action); 
         case "save": return saveHistory(state, action);
+        case "reset" : return initial;
         default: return state;
         } 
 };

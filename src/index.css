@@ -1,4 +1,7 @@
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-size: 16px;
   font-family: 'Yeon Sung', cursive;
@@ -15,9 +18,9 @@ code {
   #root{
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
   header{
     display: flex;
@@ -64,7 +67,7 @@ code {
   form select{
     margin-top: 20px;
   }
-  .pick-button, .history-list button{
+  .pick-button{
     display:inline-block;
     padding:0.35em 1.2em;
     border: 2px solid rgb(197, 54, 85);
@@ -101,13 +104,56 @@ code {
     letter-spacing: 2px;
   }
   .history-list{
-    list-style: none;
+    list-style: circle;
   }
-
+  .history-list button{
+    display:inline-block;
+    padding: 5px;
+    border: none;
+    margin: 5px;
+    cursor: pointer;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-weight:300;
+    background-color: transparent;
+    color: rgb(197, 54, 85);
+    text-align:center;
+    transition: all 0.3s ease-in-out;
+  }
+  .facts-wrapper{
+    height: 100vh;
+    margin: 10px;
+  }
+  .nav{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  .text-dec{
+    font-size: 1.2em;
+    font-weight: 400;
+    text-decoration: underline;
+  }
+  .list-block-one li{
+    display: flex;
+    flex-direction: column;
+  }
+  .description{
+    text-align: justify; 
+    text-justify: inter-word;
+  }
+  .list-group{
+    list-style-type: none;
+  }
   .cat-image{
-    width: 200px;
+    margin: 0 auto 20px auto;
+    width: 90vw;
     height: auto;
-    border-radius: 30%;
+    border-radius: 40px 10px;
+    -webkit-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
+-moz-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
+box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
   }
   .loading-container{
     width: 50px;
@@ -132,6 +178,11 @@ code {
     justify-content: center;
   }
   .github-link{
+    cursor: pointer;
+    text-decoration: none;
+    color: rgb(229,207,170);
+  }
+  .github-link:visited{
     text-decoration: none;
     color: rgb(229,207,170);
   }

@@ -36,32 +36,55 @@ class Facts extends Component {
     }
     render() {
         let { facts, loaded, img } = this.state;
-        return (
-            <main>
-                <h3>Some facts about your beloved creature</h3>
-                <ul className="list-group" >
-                    { !loaded ? <Loading/> : ( facts.map((item, index) => {
-                        return (
-                            <li key={index}> 
-                                <img className="cat-image" src={img}></img>
-                                <h3>Breed: {item.name}</h3>
-                                <p>Origin: {item.origin}</p>
-                                <p>Description: {item.description}</p>
-                                <Rating name={ "Adaptability" } n={ item.adaptability }/>
-                                <Rating name={ "Energy level" } n={ item.energy_level }/>
-                                <Rating name={ "Intelligence" } n={ item.intelligence }/>
-                                <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
-                                <a href={item.wikipedia_url}target="_blank" rel="noopener noreferrer">Wanna know more ?</a>
-                            </li>
-                        )
+        let { handleReset } = this.props;
+        
+        return !loaded ? <Loading/> : ( 
+            <main className="facts-wrapper container">
+                <div className="nav">
+                    <Link to="/">
+                        <i className="fas fa-chevron-left fa-2x nav-back"></i>
+                    </Link>
+                    <i className="far fa-heart fa-2x"></i>
+                    <Link to="/">
+                        <i onClick={ handleReset } className="fas fa-power-off fa-2x"></i>
+                    </Link>
+                </div>
+                
 
-                    }) )}
-                </ul>
-                <Link to="/">
-                    <button>Take me back to the search page</button>
-                </Link>
+                <div className="row">
+                    <div className="col-sm-12 col-lg-6">
+                        <ul className="list-group list-block-one" >
+                        { facts.map((item, index) => {
+                            return (
+                                <li key={index}> 
+                                    <img className="cat-image" src={img}></img>
+                                    <p><span className="text-dec">Breed:</span> {item.name}</p>
+                                    <p><span className="text-dec">Origin:</span> {item.origin}</p>
+                                    <p className="description"><span className="text-dec">Description:</span> {item.description}</p>
+                                    <p>Life exptectancy: { item.life_span } years</p>
+                                </li>
+                            )}) }
+                        </ul>
+                    </div>
+                    <div className="col-sm-12 col-lg-6">
+                        <ul className="list-group list-block-two">
+                        {facts.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <p>Traits on a 1-5 scale:</p>
+                                    <Rating name={ "Adaptability" } n={ item.adaptability }/>
+                                    <Rating name={ "Energy level" } n={ item.energy_level }/>
+                                    <Rating name={ "Intelligence" } n={ item.intelligence }/>
+                                    <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
+                                    <Rating name={ "Child Friendly" } n={ item.child_friendly }/>
+                                    <a href={item.wikipedia_url}target="_blank" rel="noopener noreferrer">Wanna know more ?</a>
+                                </li>
+                            )} )}
+                        </ul>
+                    </div>
+                </div>
             </main>
-        )
+        );
     }
 
 }
