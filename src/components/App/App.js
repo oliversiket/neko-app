@@ -11,15 +11,15 @@ import Footer from '../Footer/Footer';
 import FourOhFour from '../FourOhFour/FourOhFour';
 
 const App = () => (
+	// wrap our App with Router to declare routes
 	<Router>
 		<Header/>
-		<Switch>	
-			<Route exact path="/" component={ Search } />
-			<Route exact path="/facts" component={ Facts } />
-			<Route component={ FourOhFour }/>
-		</Switch>
+			<Switch>	
+				<Route exact path="/" component={ Search } />
+				<Route exact path="/facts" component={ Facts } />
+				<Route component={ FourOhFour }/>
+			</Switch>
 		<Footer/>
-		
 	</Router>
 );
 

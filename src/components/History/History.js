@@ -18,9 +18,9 @@ class History extends Component {
         
         return (
             <div className="history-wrapper">
-                <h2 className="history-title">Your recently viewed fluffy friends</h2>
+                <h2 className="history-title">Recently viewed fluffy friends</h2>
                 <ul className="history-list">
-                    { history === undefined ? null :  history.map((item, index) =>{
+                    { history.length === 0 ? <p>Your history is empty 😿</p> :  history.map((item, index) =>{
                         
                         return (<li key={ index }>
                                     <Link to='/facts'>
