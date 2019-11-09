@@ -24,11 +24,11 @@ class Search extends Component {
     handleChange(e) {
         let { breeds } = this.state;
 
-            // find the selected user input in the list of breeds
+            // store the selected breed
         let id = breeds.find(breed => breed.name === e.currentTarget.value)
 
         this.setState({
-            // if the selected breed exists use its ID and Name to create variables
+            // if breed exist update state variables
             chosenBreedID: id === undefined ? "" : id.id,
             chosenBreedName: id === undefined ? "" : id.name,
             error: false,
@@ -43,7 +43,7 @@ class Search extends Component {
         let checkBreed = () => breeds.map(breed => breed.id).includes(breedID)
         let checkHistory = () => history.map(breed => breed.id).includes(breedID);
         
-            // after submit if selected breed exists update state
+            // after submit check if the selected breed exists in history
         if( checkBreed() && !checkHistory()){
             handleBreed(breedID, breedName);
             handleHistory(breedID, breedName);

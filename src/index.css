@@ -56,7 +56,7 @@ code {
   .app-name p{
     color: rgb(116,65,80);
     font-size: 1.8em;
-    text-indent: 30px;
+    text-indent: 40px;
   }
   .pick-breed{
     display: flex;
@@ -89,9 +89,12 @@ code {
   .form-label{
     font-size: 2em;
     text-transform: capitalize;
-    font-variant: small-caps;
+    /* font-variant: small-caps; */
     font-weight:bold;
     letter-spacing: 3px;
+  }
+  .form-label::first-letter{
+    font-size: 1.1em;
   }
   .history-wrapper{
     padding-top:20px;
@@ -99,7 +102,6 @@ code {
   .history-title{
     font-size: 1.5em;
     text-transform: capitalize;
-    font-variant: small-caps;
     font-weight: 300;
     letter-spacing: 2px;
   }
@@ -129,6 +131,7 @@ code {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
+    color: rgb(197, 54, 85);
   }
   .text-dec{
     font-size: 1.2em;
@@ -138,6 +141,9 @@ code {
   .list-block-one li{
     display: flex;
     flex-direction: column;
+  }
+  .block-two-wrapper{
+    margin-bottom: 25px;
   }
   .description{
     text-align: justify; 
@@ -152,8 +158,8 @@ code {
     height: auto;
     border-radius: 40px 10px;
     -webkit-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
--moz-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
+    -moz-box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
+    box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
   }
   .loading-container{
     width: 50px;
@@ -165,8 +171,8 @@ box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 4px solid palevioletred;
-    border-bottom: 3px solid palevioletred;
+    border: 4px solid rgb(197, 54, 85);
+    border-bottom: 3px solid rgb(197, 54, 85);
     border-top: 3px solid transparent;
     border-right: none;
     animation: loadingSpinner 1s linear infinite;
@@ -187,7 +193,11 @@ box-shadow: 0px 0px 16px 3px rgba(122,101,101,1);
     color: rgb(229,207,170);
   }
 }
-
+@media only screen and (min-device-width : 580px){
+  .cat-image{
+    width: 60%;
+  }
+}
 @keyframes loadingSpinner {
 	100% { transform: rotate(360deg); }
 }

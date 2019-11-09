@@ -42,17 +42,17 @@ class Facts extends Component {
             <main className="facts-wrapper container">
                 <div className="nav">
                     <Link to="/">
-                        <i className="fas fa-chevron-left fa-2x nav-back"></i>
+                        <i className="fas fa-chevron-left fa-2x nav nav-back"></i>
                     </Link>
-                    <i className="far fa-heart fa-2x"></i>
+                    <i className="far fa-heart fa-2x nav nav-fav"></i>
                     <Link to="/">
-                        <i onClick={ handleReset } className="fas fa-power-off fa-2x"></i>
+                        <i onClick={ handleReset } className="fas fa-power-off fa-2x nav nav-off"></i>
                     </Link>
                 </div>
                 
 
                 <div className="row">
-                    <div className="col-sm-12 col-lg-6">
+                    <div className="col-sm-12 col-lg-6 block-one-wrapper">
                         <ul className="list-group list-block-one" >
                         { facts.map((item, index) => {
                             return (
@@ -66,7 +66,7 @@ class Facts extends Component {
                             )}) }
                         </ul>
                     </div>
-                    <div className="col-sm-12 col-lg-6">
+                    <div className="col-sm-12 col-lg-6 block-two-wrapper">
                         <ul className="list-group list-block-two">
                         {facts.map((item, index) => {
                             return (
