@@ -20,6 +20,7 @@ class Facts extends Component {
         let { chosenBreedID } = this.props;
 
         axios.get(`images/search?breed_id=${chosenBreedID}`).then(({ data }) => {
+            // if returned data is empty
             if(data[0].breeds.length === 0){
                 this.setState({
                     loaded: true,
@@ -40,7 +41,9 @@ class Facts extends Component {
     render() {
         let { facts, loaded, img, error } = this.state;
         let { handleReset } = this.props;
+        let errorMessage = "Something went wrong please try to refresh the page or initiate a new search."
         
+         // displaying a loading spinner until API response
         return !loaded ? <Loading/> : ( 
             <main className="facts-wrapper container">
                 <div className="nav">
@@ -53,7 +56,7 @@ class Facts extends Component {
                     </Link>
                 </div>
                 
-                { error ? <p className="text-center">Something went wrong please try to refresh the page or initiate a new search.</p> : (
+                { error ? <p className="text-center">{ errorMessage }</p> : (
                     <div className="row">
                         <div className="col-sm-12 col-lg-6 block-one-wrapper">
                             <ul className="list-group list-block-one" >
