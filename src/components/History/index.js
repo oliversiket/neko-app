@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         history: state.history
     };
 };
+
 const mapDispatchToProps = dispatch => {
     return {
         handleBreed: (id,name) => dispatch(updateChosenBreed(id,name)),

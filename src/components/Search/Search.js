@@ -63,7 +63,7 @@ class Search extends Component {
         });
     }
     render() {
-        let { breeds, error, breed, loaded } = this.state;
+        let { breeds, error, loaded } = this.state;
 
         return  !loaded ? <Loading/> : (
             <main>
@@ -73,7 +73,6 @@ class Search extends Component {
                         className={ `custom-select ${error ? "is-invalid" : null}` }
                         type="text"
                         list="breeds"
-                        value= { breed }
                         onChange={ (e) => this.handleChange(e) }
                     >
                         <option>Please select an option</option>
