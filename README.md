@@ -64,4 +64,4 @@ This App is a tool which helps to find out more about our furry friends. Returns
 ## View the app online
 Check out the live version : https://neko.oliversiket.com
 
-### *Feel free to contact me with feedback or if you have any questions*
+### *Please feel free to contact me if you have any feedback or questions - oliver.siket@gmail.com*
