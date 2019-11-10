@@ -61,12 +61,13 @@ body {
   }
   form select{
     margin-top: 20px;
+    margin-bottom: 20px;
   }
   .pick-button, .more-link{
     display:inline-block;
     padding:0.35em 1.2em;
     border: 2px solid rgb(197, 54, 85);
-    margin:20px 0.3em 0.3em 0;
+    /* margin:20px 0.3em 0.3em 0; */
     cursor: pointer;
     border-radius:0.12em;
     box-sizing: border-box;
@@ -214,6 +215,8 @@ body {
   }
   .invalid-feedback{
     font-size: 1em;
+    margin-top: -15px;
+    margin-bottom: 10px;
   }
 }
 @media only screen and (min-device-width : 580px){

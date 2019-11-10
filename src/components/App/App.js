@@ -1,6 +1,7 @@
 import React from 'react';
 import { 
-    BrowserRouter as Router, 
+	BrowserRouter as Router, 
+	HashRouter,
 	Route,
 	Switch, 
 } from 'react-router-dom';
@@ -12,7 +13,7 @@ import FourOhFour from '../FourOhFour/FourOhFour';
 
 const App = () => (
 	// wrap our App with Router to declare routes
-	<Router>
+	<HashRouter>
 		<Header/>
 			<Switch>
 				<Route exact path="/" component={ Search } />
@@ -20,7 +21,7 @@ const App = () => (
 				<Route component={ FourOhFour }/>
 			</Switch>
 		<Footer/>
-	</Router>
+	</HashRouter>
 );
 
 export default App;
