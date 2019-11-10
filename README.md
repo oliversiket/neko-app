@@ -3,7 +3,7 @@
 
 This is a showcase project for a coding test interview stage.
 
-![app preview](./src/assets/app-preview.png)
+![app preview](./src/assets/images/app-preview.png)
 ## Introduction
 This App is a tool which helps to find out more about our furry friends. Returns facts about the selected breed.
 

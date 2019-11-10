@@ -9,11 +9,6 @@ body {
   background: rgb(229,207,170);
   -moz-osx-font-smoothing: grayscale;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
 @media only screen and (min-device-width : 320px){
   #root{
     display: flex;
@@ -135,7 +130,7 @@ code {
   .nav{
     display: flex;
     justify-content: space-around;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   .nav-icon{
     color: rgb(197, 54, 85);
@@ -152,6 +147,9 @@ code {
   .list-block-one li{
     display: flex;
     flex-direction: column;
+  }
+  .list-block-two h4{
+    text-decoration: underline;
   }
   .block-two-wrapper{
     margin-bottom: 25px;
@@ -198,10 +196,13 @@ code {
     text-align: center;
   }
   .github-link{
+    display: block;
     font-size: 1.2em;
     cursor: pointer;
     text-decoration: none;
     color: rgb(229,207,170);
+    width: 100%;
+    text-align: center;
   }
   .github-link:hover{
     text-decoration: none;
@@ -236,6 +237,9 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .list-block-one{
+    margin-bottom: 20px;
   }
   .list-block-two{
     margin-top: 20px;

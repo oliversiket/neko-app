@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../../assets/moon-logo.png"
-import crown from "../../assets/crown.png"
+import logo from "../../assets/images/moon-logo.png"
+import crown from "../../assets/images/crown.png"
 
 const Header = () => (
     <header className="page-header">

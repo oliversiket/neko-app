@@ -21,11 +21,13 @@ class Facts extends Component {
         let { chosenBreedID } = this.props;
 
         axios.get(`images/search?breed_id=${chosenBreedID}`).then(({ data }) => {
-            if(data.length === 0){
+            if(data[0].breeds.length === 0){
                 this.setState({
+                    loaded: true,
                     error: true,
                 });
             }else{
+                console.log(data)
                 this.setState({
                     loaded: true,
                     facts: data[0].breeds,
@@ -38,7 +40,7 @@ class Facts extends Component {
     }
 
     render() {
-        let { facts, loaded, img } = this.state;
+        let { facts, loaded, img, error } = this.state;
         let { handleReset } = this.props;
         
         return !loaded ? <Loading/> : ( 
@@ -53,7 +55,7 @@ class Facts extends Component {
                     </Link>
                 </div>
                 
-
+            { error ? <p className="text-center">Something went wrong please try to refresh the page or initiate a new search.</p> :
                 <div className="row">
                     <div className="col-sm-12 col-lg-6 block-one-wrapper">
                         <ul className="list-group list-block-one" >
@@ -74,20 +76,21 @@ class Facts extends Component {
                         { facts.map((item, index) => {
                             return (
                                 <li key={index}>
-                                    <h4>Lifespan and health</h4>
+                                    <h4>Lifespan and health:</h4>
                                         <ul>
                                             <span>Life exptectancy: { item.life_span } years</span>
                                             <Rating name={ "Health Issues" } n={ item.health_issues }/>
                                         </ul>
-                                    <h4>Behavior</h4>
+                                    <h4>Behavior:</h4>
                                         <ul>
                                             <Rating name={ "Adaptability" } n={ item.adaptability }/>
                                             <Rating name={ "Stranger Friendly" } n={ item.stranger_friendly }/>
                                             <Rating name={ "Child Friendly" } n={ item.child_friendly }/>
+                                            <Rating name={ "Dog Friendly" } n={ item.dog_friendly }/>
                                             <Rating name={ "Social Needs" } n={ item.social_needs }/>
                                             <Rating name={ "Affection Level" } n={ item.affection_level }/>
                                         </ul>
-                                    <h4>Other</h4>
+                                    <h4>Other:</h4>
                                         <ul>
                                             <Rating name={ "Energy level" } n={ item.energy_level }/>
                                             <Rating name={ "Intelligence" } n={ item.intelligence }/>
@@ -98,6 +101,7 @@ class Facts extends Component {
                         </ul>
                     </div>
                 </div>
+            }
             </main>
         );
     }
