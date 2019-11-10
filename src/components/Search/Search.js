@@ -23,8 +23,6 @@ class Search extends Component {
 
     handleChange(e) {
         let { breeds } = this.state;
-
-            // store the selected breed
         let id = breeds.find(breed => breed.name === e.currentTarget.value)
 
         this.setState({
@@ -49,8 +47,7 @@ class Search extends Component {
             handleHistory(breedID, breedName);
         }else if(checkBreed() && checkHistory()){
             handleBreed(breedID, breedName);
-        }
-        else{
+        }else{
             // if selected doesn't exist show an error message
             e.preventDefault();
             this.setState({error: true})
@@ -80,9 +77,9 @@ class Search extends Component {
                         onChange={ (e) => this.handleChange(e) }
                     >
                         <option>Please select an option</option>
-                        {breeds.map((breeds) => {
-                            return (<option key={breeds.id}> { breeds.name }</option>
-                                )
+                            {breeds.map((breeds) => {
+                                return (<option key={breeds.id}> { breeds.name }</option>
+                                    )
                             })}
                     </select>
 
@@ -97,7 +94,7 @@ class Search extends Component {
 
                 <History/>
             </main>
-               
+  
         );
     }
 }

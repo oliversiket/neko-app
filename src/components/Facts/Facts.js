@@ -15,6 +15,8 @@ class Facts extends Component {
             loaded: false,
         }
     }
+    // TODO error handling
+    // TODO indentation check
     componentDidMount(){
         let { chosenBreedID } = this.props;
 
@@ -34,6 +36,7 @@ class Facts extends Component {
             console.log(error);
           });
     }
+
     render() {
         let { facts, loaded, img } = this.state;
         let { handleReset } = this.props;
@@ -68,7 +71,7 @@ class Facts extends Component {
                     </div>
                     <div className="col-sm-12 col-lg-6 block-two-wrapper">
                         <ul className="list-group list-block-two">
-                        {facts.map((item, index) => {
+                        { facts.map((item, index) => {
                             return (
                                 <li key={index}>
                                     <h4>Lifespan and health</h4>

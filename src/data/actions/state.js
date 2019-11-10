@@ -5,7 +5,5 @@ export const saveHistory = ( id, name ) => {
     return { type: "save", id, name}
 }
 export const reset = () => {
-    return {
-        type: "reset",
-    }; 
+    return { type: "reset" }; 
 };

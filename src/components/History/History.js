@@ -8,8 +8,8 @@ class History extends Component {
         this.handleClick=this.handleClick.bind(this);
     }
     handleClick(id,name){
-        
         let { handleBreed } = this.props;
+        
         handleBreed(id,name)
     }
 
